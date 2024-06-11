@@ -19,8 +19,6 @@ const apiConstants = {
     failure:"FAILURE"
 }
 
-const getMyBookShelf = JSON.parse(localStorage.getItem("bookshelf"))
-
 
 const Home = () => {
     const [userSearch, setUserSearch] = useState('')
@@ -29,7 +27,11 @@ const Home = () => {
         data:null
     })
 
-    const [myBookShelf, setMyBookShelf] = useState(getMyBookShelf === null ? [] : getMyBookShelf)
+        const [myBookShelf, setMyBookShelf] = useState(() => {
+            const parsedBookshelf = JSON.parse(localStorage.getItem("bookshelf"))
+    return parsedBookshelf ? parsedBookshelf : [];
+        })
+          
     
 
     const changeInput = event => {
@@ -62,7 +64,7 @@ const Home = () => {
 
     }
 
-    const searchQuery = userSearch === "" ? "Harry Potter" : userSearch
+    const searchQuery = userSearch === "" ? "Harry Potter" : userSearch.trim()
 const getBooksList = async() => {
     setApiStatus({status: apiConstants.inProgress,
         data:null})
@@ -85,16 +87,22 @@ const getBooksList = async() => {
 const addMyBookshelf = bookId => {
     const {data} = apiStatus
 
-    const findBook = data.filter(eachBook => eachBook.id === bookId)
+    const findBook = data.find(eachBook => eachBook.id === bookId)
     const chechBook = myBookShelf.find(eachBook => eachBook.id === bookId)
    
-    if(chechBook === undefined){
-        setMyBookShelf(prevState => [...prevState, findBook[0]])
+    if(!chechBook){
+        setMyBookShelf(prevState => {
+            const updatedBookshelf = [...prevState, findBook]
+            localStorage.setItem('bookshelf', JSON.stringify(updatedBookshelf))
+            return updatedBookshelf
+        })
+
     }
 }
 
 const deleteMyBookshelf = bookId => {
     const updatedBookshelf = myBookShelf.filter(eachBook => eachBook.id !== bookId)
+    localStorage.setItem('bookshelf', JSON.stringify(updatedBookshelf))
     setMyBookShelf(updatedBookshelf)
 }
 
@@ -106,7 +114,7 @@ useEffect(() => {
 
     useEffect(() => {
 getBooksList()
-    }, [myBookShelf])
+    }, [])
 
     
 
@@ -121,6 +129,8 @@ getBooksList()
 const {data} = apiStatus
 
 const display = data.length !== 0
+
+
 
 
         return(

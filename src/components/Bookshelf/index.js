@@ -1,21 +1,34 @@
+import { useState, useEffect } from 'react'
 import BookList from '../BookList'
 import Header from '../Header'
 import {RenderBookShelf,MyBooksContainer,
     MyBooksHeading,BookListContainer,
     NoBookAvaliable} from './styledComponents'
 
-const getMyBookShelf = JSON.parse(localStorage.getItem("bookshelf"))
+const getMyBookShelfItems = () => {
 
+    const parsedBookshelf = JSON.parse(localStorage.getItem("bookshelf"))
+    return parsedBookshelf ? parsedBookshelf : [];
+    
+}
 
 const Bookshelf = () => {
 
-    const bookAvailable = getMyBookShelf.length !== 0
+    const [myBookshelf, setMyBookshelf] = useState(getMyBookShelfItems)
 
-    console.log(bookAvailable)
+useEffect(() => {
+    localStorage.setItem('bookshelf',JSON.stringify(myBookshelf))
+},[myBookshelf])
+
+   
+
     const deleteMyBookshelf = bookId => {
-        const updatedBookshelf = getMyBookShelf.filter(eachBook => eachBook.id !== bookId)
-        localStorage.setItem('bookshelf', JSON.stringify(updatedBookshelf))   
+        const updatedBookshelf = myBookshelf.filter(eachBook => eachBook.id !== bookId)
+        setMyBookshelf(updatedBookshelf)
+
     }
+
+    const bookAvailable = myBookshelf.length !== 0
 
 return(
     <RenderBookShelf>
@@ -23,7 +36,7 @@ return(
         {bookAvailable && <MyBooksContainer>
             <MyBooksHeading>My Bookshelf</MyBooksHeading>
             <BookListContainer>
-                {getMyBookShelf.map(eachBook => <BookList key={eachBook.id}  
+                {myBookshelf.map(eachBook => <BookList key={eachBook.id}  
                 deleteBooks={deleteMyBookshelf}
                 bookData={eachBook}/> )}
             </BookListContainer>

@@ -10,10 +10,10 @@ padding:20px;
 border-radius:6px;
 margin-bottom:20px;
 width:270px;
-height:350px;
+min-height:350px;
 box-shadow: 4px 3px 2px 2px #e7ff61;
 @media (min-width:401px){
-width:300px;
+min-width:300px;
 margin-right:20px;
 }
 `

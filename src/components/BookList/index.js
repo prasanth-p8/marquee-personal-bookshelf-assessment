@@ -5,8 +5,9 @@ import {Book,
         BookButton,
         HighLight
     } from  './styledComponents'
-    
-    const getMyBookShelf = JSON.parse(localStorage.getItem("bookshelf"))
+
+   
+
 
 const BookList = props => {
 
@@ -16,7 +17,10 @@ const BookList = props => {
     const displayRating = isNaN(rating)? "No Rating" : rating 
     const displayRatingCount = ratingsCount === undefined ? "0" : ratingsCount
 
-    const searchBook = getMyBookShelf.find(eachBook => eachBook.id === id)
+    const bookshelf = JSON.parse(localStorage.getItem("bookshelf")) || [];
+    const searchBook = bookshelf.find(eachBook => eachBook.id === id)
+
+
 
     const buttonText = searchBook === undefined
 

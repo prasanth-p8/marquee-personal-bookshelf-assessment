@@ -14,12 +14,12 @@ A React application that allows users to search for books using the Open Library
 - [Pages](#pages)
   - [Book Search Page](#book-search-page)
   - [Personal Bookshelf Page](#personal-bookshelf-page)
-- [Project Structure](#project-structure)
+
 
 
 ## Demo
 
-Check out the live demo of the application: [Live Demo](#) (https://prasanth-marquee-bookshelf.vercel.app)
+Check out the live demo of the application: [Live Demo](https://prasanth-marquee-bookshelf.vercel.app)
 
 ## Features
 
@@ -92,31 +92,4 @@ Make sure you have the following installed on your local development machine:
 - **Not a Valid Url**: Redirected to NotFound Route indicates that you are on wrong URL path.
 - **Go to Home**: Button used to navigate you to the Home Page.
 
-## Project Structure
 
-marquee-personal-bookshelf/
-|── node_modules
-├── public/
-│ ├── favicon.ico
-│ ├── index.html
-│ ├── manifest.json
-│ └── robots.txt
-├── src/
-│ ├── components/
-│ │ ├── Booklist/
-│ │ ├── Bookshelf/
-│ │ ├── Header/
-│ │ ├── Home/
-│ │ └── NotFound/
-│ ├── App.css
-│ ├── App.js
-│ ├── App.test.js
-│ ├── index.css
-│ ├── index.js
-│ ├── logo.svg
-│ ├── reportWebVitals.js
-│ └── setupTests.js
-├── .gitignore
-├── package-lock.json
-├── package.json
-└── README.md

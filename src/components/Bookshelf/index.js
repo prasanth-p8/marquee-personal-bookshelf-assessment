@@ -6,10 +6,8 @@ import {RenderBookShelf,MyBooksContainer,
     NoBookAvaliable} from './styledComponents'
 
 const getMyBookShelfItems = () => {
-
     const parsedBookshelf = JSON.parse(localStorage.getItem("bookshelf"))
     return parsedBookshelf ? parsedBookshelf : [];
-    
 }
 
 const Bookshelf = () => {
@@ -25,7 +23,6 @@ useEffect(() => {
     const deleteMyBookshelf = bookId => {
         const updatedBookshelf = myBookshelf.filter(eachBook => eachBook.id !== bookId)
         setMyBookshelf(updatedBookshelf)
-
     }
 
     const bookAvailable = myBookshelf.length !== 0

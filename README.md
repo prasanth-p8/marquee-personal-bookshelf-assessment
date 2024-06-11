@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# Personal Bookshelf
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application that allows users to search for books using the Open Library API and maintain a personal bookshelf in the browser using localStorage.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Demo](#demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Pages](#pages)
+  - [Book Search Page](#book-search-page)
+  - [Personal Bookshelf Page](#personal-bookshelf-page)
+- [Project Structure](#project-structure)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Check out the live demo of the application: [Live Demo](#) (https://prasanth-marquee-bookshelf.vercel.app)
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Real-time book search using the Open Library API.
+- Add books to your personal bookshelf.
+- Persist bookshelf data using localStorage.
+- Responsive design for mobile and desktop.
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- React Router
+- Styled Components
+- Open Library API
+- React Hooks
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Make sure you have the following installed on your local development machine:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Node.js (>= 14)
+- npm (>= 6)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository:
 
-## Learn More
+    ```bash
+    git clone https://github.com/prasanth-p8/marquee-personal-bookshelf-assessment.git
+    cd marquee-personal-bookshelf-assessment-main
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install dependencies:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    npm install
+    ```
 
-### Code Splitting
+### Running the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Start the development server:
 
-### Analyzing the Bundle Size
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Open your browser and navigate to `http://localhost:3000`.
 
-### Making a Progressive Web App
+## Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Book Search Page
 
-### Advanced Configuration
+- **Input Field**: Type the name of a book to search.
+- **Input Field is Invalid**: Display the image showing there is no books for your search.
+- **Real-Time Search Results**: Displays search results as you type.
+- **Add to Bookshelf**: Option to add books to your personal bookshelf.
+- **Remove from Bookshelf**: Option to remove books from your personal bookshelf.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Personal Bookshelf Page
 
-### Deployment
+- **Empty Bookshelf**: There is no books in your bookshelf empty image will be shown.
+- **View Bookshelf**: Displays books added to your bookshelf.
+- **Remove from Bookshelf**: Option to remove books from your personal bookshelf.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Not Found Page
 
-### `npm run build` fails to minify
+- **Not a Valid Url**: Redirected to NotFound Route indicates that you are on wrong URL path.
+- **Go to Home**: Button used to navigate you to the Home Page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Structure
+
+marquee-personal-bookshelf/
+|── node_modules
+├── public/
+│ ├── favicon.ico
+│ ├── index.html
+│ ├── manifest.json
+│ └── robots.txt
+├── src/
+│ ├── components/
+│ │ ├── Booklist/
+│ │ ├── Bookshelf/
+│ │ ├── Header/
+│ │ ├── Home/
+│ │ └── NotFound/
+│ ├── App.css
+│ ├── App.js
+│ ├── App.test.js
+│ ├── index.css
+│ ├── index.js
+│ ├── logo.svg
+│ ├── reportWebVitals.js
+│ └── setupTests.js
+├── .gitignore
+├── package-lock.json
+├── package.json
+└── README.md

@@ -52,7 +52,7 @@ Make sure you have the following installed on your local development machine:
 
     ```bash
     git clone https://github.com/prasanth-p8/marquee-personal-bookshelf-assessment.git
-    cd marquee-personal-bookshelf-assessment-main
+    cd marquee-personal-bookshelf-assessment
     ```
 
 2. Install dependencies:
